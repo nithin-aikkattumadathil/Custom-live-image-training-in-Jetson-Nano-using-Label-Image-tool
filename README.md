@@ -78,7 +78,7 @@
 * python3 onnx_export.py --model-dir=models/model_name
 * The converted model will then be saved under model_name/ssd-mobilenet.onnx, which you can then load with the detectnet programs
 * make sure you are in root jetson-inference/python/training/detection/ssd
-* detectnet --model=models/model_name/ssd-mobilenet.onnx --labels=models/model_name/labels.txt --input-blob-input_0 --output-cvg=scores --output-bbox=boxes /dev/video0
+* detectnet --model=models/model_name/ssd-mobilenet.onnx --labels=models/model_name/labels.txt --input-blob=input_0 --output-cvg=scores --output-bbox=boxes /dev/video0
 * the above command will start the detection procedures
 
 # that's all ,jetson will detect you custom objects.
