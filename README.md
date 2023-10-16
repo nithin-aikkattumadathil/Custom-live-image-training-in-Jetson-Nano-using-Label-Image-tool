@@ -29,7 +29,7 @@
 * place the video inside jetson-train/videos in mp4 format
 * now we have to convert the video file to frame by frame images using prepare_dataset.py python file
 * open prepare_dataset.py
-* in the 16th line of code, give the exact name of your video file
+* in the 16th line of code, give the exact name of your video file (no need if you have updated code)
 * in the 20th line of code, we have a predefined count 10, you can increase the count to decrease the number of images to be generated and vice-versa
 * save and close prepare_dataset.py
 * cd jetson-train/
