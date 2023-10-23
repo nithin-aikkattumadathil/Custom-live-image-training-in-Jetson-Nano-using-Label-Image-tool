@@ -1,0 +1,74 @@
+#!/usr/bin/python3
+import time
+import serial
+import cv2  # OpenCV for video capture
+import subprocess
+import threading
+import queue
+
+# Function to read from detectnet process and send results to UART
+def read_detectnet_output(process, uart_queue):
+    while True:
+        line = process.stdout.readline()
+        if not line:
+            break
+        # Process the detectnet output as needed
+        # Extract the detected object's name and send it over UART
+        detected_object_name = line.strip()  # No need to decode a string
+        uart_queue.put(detected_object_name)
+
+
+# Function to handle UART communication
+def uart_communication(uart_queue):
+    serial_port = serial.Serial(
+        port="/dev/ttyTHS1",
+        baudrate=115200,
+        bytesize=serial.EIGHTBITS,
+        parity=serial.PARITY_NONE,
+        stopbits=serial.STOPBITS_ONE,
+    )
+   # time.sleep(1)  # Wait for the port to initialize-----------------------------------------------------
+
+    try:
+        while True:
+            # Check if there's a detected object name in the queue
+            if not uart_queue.empty():
+                detected_object_name = uart_queue.get()
+                serial_port.write(detected_object_name.encode() + b"\r\n")
+                #time.sleep(1)  # Add a delay if needed------------------------------------------------
+
+    except KeyboardInterrupt:
+        print("Exiting UART Communication")
+
+    except Exception as exception_error:
+        print("UART Communication Error occurred. Exiting Program")
+        print("Error: " + str(exception_error))
+
+    finally:
+        serial_port.close()
+
+if __name__ == "__main__":
+    print("Object Detection and UART Communication Program")
+
+    # Create a queue for passing detected object names between threads
+    uart_queue = queue.Queue()
+
+    # Start the UART communication thread
+    uart_thread = threading.Thread(target=uart_communication, args=(uart_queue,))
+    uart_thread.start()
+
+    # Start the detectnet command in the background
+    detectnet_process = subprocess.Popen(
+        "detectnet --model=models/traffic/ssd-mobilenet.onnx --labels=models/traffic/labels.txt --input-blob=input_0 --output-cvg=scores --output-bbox=boxes /dev/video0",
+        stdout=subprocess.PIPE,
+        shell=True,
+        universal_newlines=True,
+    )
+
+    # Start a thread to read the output of the detectnet command
+    detectnet_thread = threading.Thread(target=read_detectnet_output, args=(detectnet_process, uart_queue))
+    detectnet_thread.start()
+
+    # The object detection and UART communication threads will run concurrently
+    uart_thread.join()
+    detectnet_thread.join()
