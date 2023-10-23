@@ -83,4 +83,9 @@
 
 # that's all ,jetson will detect you custom objects.
   
- 
+ * you can also do object detction and sending the data over UART at the same time
+ * One of the UART port that we have in Jetson Nano Developer Kit is ttyTHS1
+ * make a new python file and use the code provided here for that
+ * you have to place and run the python file in the location jetson-inference/python/training/detection/ssd
+ * no need to run docker/run.sh
+ * use sudo for running python file, to elevates the privileges of the script to have root-level access. 
