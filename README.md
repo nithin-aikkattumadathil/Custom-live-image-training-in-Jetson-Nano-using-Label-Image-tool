@@ -84,6 +84,7 @@
 # that's all ,jetson will detect you custom objects.
   
  * you can also do object detction and sending the data over UART at the same time
+ * no need to run the command detectnet --model=models/model_name/ssd-mobilenet.onnx --labels=models/model_name/labels.txt --input-blob=input_0 --output-cvg=scores --output-bbox=boxes /dev/video0
  * One of the UART port that we have in Jetson Nano Developer Kit is ttyTHS1
  * make a new python file and use the code provided here for that
  * you have to place and run the python file in the location jetson-inference/python/training/detection/ssd
