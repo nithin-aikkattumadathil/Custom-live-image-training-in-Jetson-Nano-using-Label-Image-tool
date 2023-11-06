@@ -1,10 +1,10 @@
-#!/usr/bin/python3 program that combines object detection and UART communication on an NVIDIA Jetson device
+#!/usr/bin/python3 program that combines object detection and UART communication on an NVIDIA Jetson device       names of class only
 import time
 import serial         #serial` for UART communication,
 import cv2            # OpenCV for video capture
-import subprocess     #`subprocess for running the detectnet` command, 
+import subprocess     #`subprocess` for running the `detectnet` command, 
 import threading      #threading` for managing concurrent execution
-import queue          #queue` for passing data between threads.
+import queue	      #queue` for passing data between threads.
 import re
 
 # Function to read from detectnet process and send results to UART
@@ -78,3 +78,4 @@ if __name__ == "__main__":
     # The object detection and UART communication threads will run concurrently
     uart_thread.join()
     detectnet_thread.join()
+
