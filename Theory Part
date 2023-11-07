@@ -1,2 +1,7 @@
-#Object Classes
-Trained with tools like Pytorch, Tensorflow, TensorRT,
+# Object Classes
+Trained with tools like Pytorch, Tensorflow, TensorRT, Label image tool, Camera capture tool. Steps included are 
+Data collection ......> Data annotation ......> data processing ......> framework selection ......> model architecture selection ......> transfer learning ......> model training ......> result validation ......> inference ......> building neural network model excghange ......> deployement .
+
+# Image Capturing using V4L2 devices
+device used hereis webcam .Video4Linux2 is a framework for capturing and working with video devices in linux operating syatem.V4L2 provides standard interface for applications to capture , process and display video and still images 
+
