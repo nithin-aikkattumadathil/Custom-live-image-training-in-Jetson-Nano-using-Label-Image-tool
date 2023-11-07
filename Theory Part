@@ -1,22 +1,33 @@
-# Object Classes
-Trained with tools like Pytorch, Tensorflow, TensorRT, Label image tool, Camera capture tool. Steps included are 
-Data collection ......> Data annotation ......> data processing ......> framework selection ......> model architecture selection ......> transfer learning ......> model training ......> result validation ......> inference ......> building neural network model excghange ......> deployement .
+# Object Classes 
 
-# Image Capturing using V4L2 devices
-device used hereis webcam .Video4Linux2 is a framework for capturing and working with video devices in linux operating syatem.V4L2 provides standard interface for applications to capture , process and display video and still images 
+Trained with tools like Pytorch, Tensorflow, TensorRT, Label image tool, Camera capture tool. Steps included are  
 
-# Python code
-The code for sub processing detectnet command and UART communication in threading style. sends the class number of object detected along with 255 at the first bite
+Data collection ......> Data annotation ......> data processing ......> framework selection ......> model architecture selection ......> transfer learning ......> model training ......> result validation ......> inference ......> building neural network model excghange ......> deployement . 
 
-Transferring class number in UART, configured in ttyTHS1 at a boad rate of 115200 through RS232 converter to IMX6 nitrogen board
+# Image Capturing using V4L2 devices 
 
-# Neural network model
-It is a computational model inspired by structure and function of biological neural network in human brain. It is the fundamental component for deep machine learning. This models are designed to perform tasks like recognition classification etc..
+device used hereis webcam .Video4Linux2 is a framework for capturing and working with video devices in linux operating syatem.V4L2 provides standard interface for applications to capture , process and display video and still images  
 
-For a real time objective detection with advanced deep machine learning essential factors required are...
-# Object detection algorithm
-We used SSD single shot multibox detection algorithm developed by Wei Liu and Anguelov and their researchers in 2016 .it is now used worldwide for autonomous driving, robotics and video surveillance
-# Model architecture
-We created our own  custom model architecture through training. It requires labels,  images of objects epocs generation. model architecture created by us is architecture for traffic signs. From this model architecture we developed our own neural network model. The neural network is the mathematical abstraction that the .onnx file encoded and represents. .onnx file contains architecture and parameters of a neural network model
-# Hardware
-Jetson Nano developer kit
+# Python code 
+
+The code for sub processing detectnet command and UART communication in threading style. sends the class number of object detected along with 255 at the first bite 
+
+Transferring class number in UART, configured in ttyTHS1 at a boad rate of 115200 through RS232 converter to IMX6 nitrogen board 
+
+# Neural network model 
+
+It is a computational model inspired by structure and function of biological neural network in human brain. It is the fundamental component for deep machine learning. This models are designed to perform tasks like recognition classification etc.. 
+
+For a real time objective detection with advanced deep machine learning essential factors required are... 
+
+# Object detection algorithm 
+
+We used SSD single shot multibox detection algorithm developed by Wei Liu and Anguelov and their researchers in 2016 .it is now used worldwide for autonomous driving, robotics and video surveillance 
+
+# Model architecture 
+
+We created our own custom model architecture through training. It requires labels, images of objects epocs generation. model architecture created by us is architecture for traffic signs. From this model architecture we developed our own neural network model. The neural network is the mathematical abstraction that the .onnx file encoded and represents. .onnx file contains architecture and parameters of a neural network model 
+
+# Hardware 
+
+Jetson Nano developer kit 
