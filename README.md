@@ -57,7 +57,7 @@
 * create labels.txt file inside jetson-train/data/model_name (gedit labels.txt)
 * list the name of objects you are going to train in the labels.txt file, one name in one line and top left alligned,and save.
 * open a new terminal at jetson-train
-* python3 train_ssd.py --dataset-type=voc --data=data/model_name --model-dir=models/model_name --batch-size=2 --workers=2 --epochs=300
+* python3 train_ssd.py --dataset-type=voc --data=data/model_name/ --model-dir=models/model_name --batch-size=2 --workers=2 --epochs=300
 * close all other applications on the system
 * it will take some time
 * open terminal at jetson-train
