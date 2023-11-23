@@ -1,0 +1,9 @@
+BACKGROUND
+anger
+contempt
+disguist
+fear
+happy
+neutral
+sad
+surprise
